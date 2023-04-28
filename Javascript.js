@@ -1,4 +1,3 @@
-//document.addEventListener("DOMContentLoaded",drawgrid);
 
 function drawgrid() {
     const grid = document.getElementById('container'); // target the container as grid
@@ -6,19 +5,29 @@ function drawgrid() {
     const gridcount = parseInt(input.value);
     grid.style.gridTemplateColumns = `repeat(${gridcount}, 1fr)`; //gridcount as column and row
     grid.style.gridTemplateRows = `repeat(${gridcount}, 1fr)`;
+    const option = select.options[select.selectedIndex].value;
 
-    if (typeof gridcount === 'number' && gridcount < 49) {
+    if (typeof gridcount === 'number' && gridcount < 101) {
         const totalgrid = gridcount*gridcount;
         for(var i=0; i<totalgrid; i++) {
             const gridItem = document.createElement('div'); 
             gridItem.classList.add('grid-item'); // add a <div class = "grid-item"></div>
 
-            const innerdiv = document.createElement('div');
-            gridItem.appendChild(innerdiv);// add <div></div> in grid-item
-
             gridItem.addEventListener ('mouseover', function(e) {
-                e.target.style.backgroundColor = 'black';
-            });
+                if (option === 'black'){
+                    e.target.style.backgroundColor = 'black';
+                } else if (option === 'gray' ) {
+                    e.target.style.backgroundColor = `rgb(224,224,224)`;
+                }else if (option === 'RGB') {
+                    var R = Math.floor(Math.random()*256);
+                    var G = Math.floor(Math.random()*256);
+                    var B = Math.floor(Math.random()*256);
+                    var randomColor = 'rgb('+R+','+G+','+B+')';
+                    e.target.style.backgroundColor = randomColor;
+                }
+            }
+            )
+                
 
             gridItem.addEventListener('mouseleave', function(e) {
                 e.target.style.backgroundColor = '#ccc';
@@ -33,16 +42,19 @@ function drawgrid() {
     }
 };
 
-const resetbutton = document.querySelector('button');
+const resetbutton = document.querySelector('button'); // reset the grid
 resetbutton.addEventListener('click',function(e){
     const grid = document.getElementById('container');
-    while(grid.firstChild) {
+    while(grid.firstChild) { // delete the grid
     grid.removeChild(grid.firstChild);
     };
-    drawgrid();
-
+    drawgrid(); // recreate grids
 })
 
-
-
-
+const select = document.getElementById('select'); // add three options for choosing the color of grid
+    const color = ['black', 'gray', 'RGB'];
+    color.forEach(color => {
+    const option = document.createElement('option');
+    option.text = color;
+    select.add(option);
+    })
