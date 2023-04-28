@@ -1,4 +1,4 @@
-
+// draw the grid and the length is depend on the input value
 function drawgrid() {
     const grid = document.getElementById('container'); // target the container as grid
     const input = document.getElementById('input'); // target the input
@@ -14,7 +14,7 @@ function drawgrid() {
             gridItem.classList.add('grid-item'); // add a <div class = "grid-item"></div>
 
             gridItem.addEventListener ('mouseover', function(e) { // grid will change color when mouseover
-                if (option === 'Black'){ // whem option === black, grid show black when mouseover
+                if (option === 'Black'){ // when option === black, grid show black when mouseover
                     e.target.style.backgroundColor = 'black';
                 } else if (option === 'Gray' ) { // whem option === grey, grid show grey when mouseover
                     e.target.style.backgroundColor = `rgb(224,224,224)`;
@@ -28,7 +28,6 @@ function drawgrid() {
             }
             )
                 
-
             gridItem.addEventListener('mouseleave', function(e) { // grid color will back to #ccc when mouse leave
                 e.target.style.backgroundColor = '#ccc';
             })
@@ -37,7 +36,7 @@ function drawgrid() {
 
         }
     }
-    else {
+    else { // if type of input is not number will return
         return;
     }
 };
