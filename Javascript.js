@@ -14,9 +14,9 @@ function drawgrid() {
             gridItem.classList.add('grid-item'); // add a <div class = "grid-item"></div>
 
             gridItem.addEventListener ('mouseover', function(e) { // grid will change color when mouseover
-                if (option === 'black'){ // whem option === black, grid show black when mouseover
+                if (option === 'Black'){ // whem option === black, grid show black when mouseover
                     e.target.style.backgroundColor = 'black';
-                } else if (option === 'gray' ) { // whem option === grey, grid show grey when mouseover
+                } else if (option === 'Gray' ) { // whem option === grey, grid show grey when mouseover
                     e.target.style.backgroundColor = `rgb(224,224,224)`;
                 }else if (option === 'RGB') { // whem option === RGB, grid show random RGB when mouseover
                     var R = Math.floor(Math.random()*256);
@@ -52,7 +52,7 @@ resetbutton.addEventListener('click',function(e){
 })
 
 const select = document.getElementById('select'); // add three options for choosing the color of grid
-    const color = ['black', 'gray', 'RGB'];
+    const color = ['Black', 'Gray', 'RGB'];
     color.forEach(color => {
     const option = document.createElement('option');
     option.text = color;

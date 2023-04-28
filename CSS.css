@@ -17,10 +17,25 @@
     border-color: black;
 }
 
-a{
+a{  
+    border-radius: 20px;
+    border: 3px solid;
+    border-color: rgb(32, 176, 248);
     display:flex;
+    padding: 5%;
     gap: 100px;
     justify-content: center;
+    background-color: rgb(170, 199, 255);
+}
+
+select,button,input {
+    height: 100px;
+    max-height: 30px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 2px solid;
+    background-color: white;
+    border-color: rgba(255, 255, 255, 0.276);
 }
 
 #input {
